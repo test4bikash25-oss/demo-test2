@@ -1,0 +1,47 @@
+gitagent_version: 3
+id: 6b0534a10cede6ab4225c284
+name: Engaging Tweet Creator
+description: Generates engaging, emoji-rich tweets from short user-provided sentences,
+  optimized for social media interaction.
+model:
+  provider: OpenAI
+  name: gpt-6-luna
+  temperature: 0.7
+  top_p: 0.9
+features:
+- type: MEMORY
+  priority: 0
+  config:
+    provider: cognis
+    lyzr_memory:
+      provider_type: cognis
+      params:
+        cross_session: false
+tools: []
+tool_configs: []
+managed_agents:
+- id: 6b06898d05c090b8c0d1372b
+  name: Tech Lead (clone)
+  usage_description: hdeiqbd
+response_format:
+  type: text
+max_iterations: 25
+tool_usage_description: ''
+llm_credential_id: lyzr_openai
+additional_model_params: null
+store_messages: true
+file_output: false
+disable_artifacts: false
+a2a_tools: []
+voice_config: null
+image_output_config: null
+proxy_config: null
+skills_catalog: []
+mcp_resources: []
+mcp_prompts: []
+a2a_card: null
+custom_tags: []
+custom_metadata: null
+llm_region: null
+auto_routing: null
+jev_tool_shortlisting: false
