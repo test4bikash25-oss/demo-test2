@@ -17,6 +17,13 @@ features:
       provider_type: cognis
       params:
         cross_session: false
+- type: SRS
+  priority: 0
+  config:
+    max_tries: 1
+    modules:
+      reflection: true
+      bias: false
 tools: []
 tool_configs: []
 managed_agents:
