@@ -29,7 +29,7 @@ max_iterations: 25
 tool_usage_description: ''
 llm_credential_id: lyzr_openai
 additional_model_params: null
-store_messages: true
+store_messages: false
 file_output: false
 disable_artifacts: false
 a2a_tools: []
