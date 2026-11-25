@@ -30,6 +30,8 @@ managed_agents:
 - id: 6b06898d05c090b8c0d1372b
   name: Tech Lead (clone)
   usage_description: hdeiqbd
+- id: 69a01920d52d80a5e9a6f89f
+  name: 'Tigger '
 response_format:
   type: text
 max_iterations: 25
