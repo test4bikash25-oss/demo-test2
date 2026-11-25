@@ -24,6 +24,47 @@ features:
     modules:
       reflection: true
       bias: false
+- type: UQLM_LLM_JUDGE
+  priority: 0
+  config:
+    judge_provider_id: OpenAI
+    judge_model: gpt-6-luna
+    judge_llm_credential_id: lyzr_openai
+    judge_temperature: 0.3
+    judge_prompt: "\nLLM_JUDGE_PROMPT LYZR_MODULE_898909\n\nYou are an AI evaluator\
+      \ tasked with assessing the factual accuracy and confidence of an AI's response.\
+      \ Your goal is to determine if the response contains any hallucinations or factual\
+      \ errors.\n\nIMPORTANT GUIDELINES:\n1. The AI may have specific instructions\
+      \ or a role that determines how it responds. If the AI is following its designated\
+      \ role and instructions correctly, even if it doesn't directly answer the user's\
+      \ query, this is NOT a hallucination.\n\n2. CRITICAL: Standard greetings, acknowledgments,\
+      \ or conversation starters (like \"Hello\", \"How can I help?\", etc.) should\
+      \ be given a high factual accuracy and confidence score (0.8-1.0) as they are\
+      \ appropriate ways to begin a conversation regardless of the AI's specific role.\n\
+      \n3. Only evaluate the response for hallucinations or factual accuracy in the\
+      \ context of what was actually stated. Do not penalize the AI for not immediately\
+      \ jumping into its role if the conversation is just beginning.\n\nPlease evaluate\
+      \ the following aspects:\n\n1. Factual Accuracy (0.0-1.0):\n   - How factually\
+      \ accurate is the response within the context of the AI's role?\n   - Are there\
+      \ any statements that appear incorrect or unfounded?\n   - If the AI is following\
+      \ specific instructions rather than answering a query directly, evaluate the\
+      \ factual accuracy of what it does say.\n   - Note: Standard greetings and conversation\
+      \ starters should receive high factual accuracy scores.\n\n2. Confidence Score\
+      \ (0.0-1.0):\n   - How confident should we be in this response?\n   - Is there\
+      \ any ambiguity or uncertainty that should reduce our confidence?\n   - Note:\
+      \ Standard greetings should receive high confidence scores.\n\n3. Hallucination\
+      \ Detection:\n   - Identify any statements that appear to be hallucinations\
+      \ (information not supported by general knowledge)\n   - List specific phrases\
+      \ or claims that seem unfounded\n   - Note: Following instructions that don't\
+      \ directly address a user query is NOT a hallucination\n   - Note: Standard\
+      \ greetings and conversation starters are NOT hallucinations\n   - Consider\
+      \ the stage of the conversation (beginning, middle, end)\n\nContext (if available):\n\
+      {context}\n\nFull Conversation:\n{conversation}\n\nQuery:\n{query}\n\nResponse\
+      \ to Evaluate:\n{response}\n\nProvide your evaluation in the following JSON\
+      \ format:\n{{\n    \"factual_accuracy\": float,  # 0.0 to 1.0\n    \"confidence_score\"\
+      : float,  # 0.0 to 1.0\n    \"hallucinations\": [str],    # List of specific\
+      \ hallucinations identified\n    \"overall_quality\": float    # 0.0 to 1.0,\
+      \ considering both accuracy and confidence\n}}\n"
 tools: []
 tool_configs: []
 managed_agents:
